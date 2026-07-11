@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Unfill — blank out a filled form</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Unfill</h1>
+    <p class="tagline">Erase the handwriting from a scanned form and get the blank template back.</p>
+  </header>
+
+  <main>
+    <section id="drop" class="drop">
+      <input type="file" id="file" accept="image/*" hidden />
+      <div class="drop-inner">
+        <p class="drop-title">Drop a scanned form here</p>
+        <p class="drop-sub">or <button type="button" id="browse" class="link">choose a file</button></p>
+        <p class="drop-note">Processed in memory — your image is never saved to disk.</p>
+      </div>
+    </section>
+
+    <section class="options">
+      <label>
+        <input type="checkbox" id="whiten" checked />
+        <span>Whiten paper <em>— remove scan tint and shadows, for clean printing</em></span>
+      </label>
+      <label class="grow">
+        <span>Erase strength</span>
+        <input type="range" id="grow" min="1" max="4" step="1" value="2" />
+        <output id="growOut">2</output>
+        <em>— raise if faint ink still shows through</em>
+      </label>
+    </section>
+
+    <section id="status" class="status" hidden>
+      <div class="spinner" aria-hidden="true"></div>
+      <p id="statusText">Erasing ink…</p>
+    </section>
+
+    <section id="error" class="error" hidden></section>
+
+    <section id="result" class="result" hidden>
+      <div class="compare" id="compare">
+        <img id="after" alt="Blanked form" />
+        <div class="before-wrap" id="beforeWrap">
+          <img id="before" alt="Original form" />
+        </div>
+        <div class="handle" id="handle"><span></span></div>
+      </div>
+      <div class="labels"><span>Original</span><span>Blanked</span></div>
+      <div class="actions">
+        <a id="download" class="btn" download="form_blank.png">Download PNG</a>
+        <button type="button" id="again" class="btn ghost">Do another</button>
+      </div>
+      <p id="meta" class="meta"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Ink detected by hue &amp; saturation, erased with the
+      <a href="https://github.com/Sanster/IOPaint" target="_blank" rel="noopener">LaMa</a> inpainting model.</p>
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>

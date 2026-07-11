@@ -1,0 +1,35 @@
+# Never commit form scans. They carry real personal data (names, Aadhaar/EPIC
+# numbers, photos, signatures). Sample folders stay local.
+input/
+output/
+masks/
+final/
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.tif
+*.tiff
+*.pdf
+!web/**/*.svg
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+*.egg-info/
+build/
+dist/
+
+# Models (LaMa is ~196MB, downloaded on first run)
+*.pt
+*.ckpt
+.cache/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
