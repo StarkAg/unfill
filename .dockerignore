@@ -1,0 +1,24 @@
+.git/
+.gitignore
+
+# Form scans - never bake personal data into an image.
+input/
+output/
+masks/
+final/
+*.jpg
+*.jpeg
+*.png
+*.webp
+*.pdf
+
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
